@@ -18,7 +18,7 @@ const BookingsView = () => {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/`, {
+        const response = await axios.get(`https://scaler-hotel-management-server.vercel.app/`, {
           params: {
             roomType: roomType,
             roomId: roomId
@@ -50,7 +50,7 @@ const BookingsView = () => {
 
     const handleCancelBooking = async (bookingId) => {
     try {
-      const response = await axios.delete(`http://localhost:3001/delete/${bookingId}`);
+      const response = await axios.delete(`https://scaler-hotel-management-server.vercel.app/delete/${bookingId}`);
       alert(response.data.message + ' Refund Amount: ' + response.data.refundAmount);
       // Refresh the bookings list after cancellation
       const updatedBookings = bookings.filter(booking => booking.booking_id !== bookingId);
@@ -104,7 +104,7 @@ const BookingsView = () => {
 
   const handleUpdateBooking = async (bookingId) => {
     try {
-      const response = await axios.put(`http://localhost:3001/update/${bookingId}`, editFormData);
+      const response = await axios.put(`https://scaler-hotel-management-server.vercel.app/update/${bookingId}`, editFormData);
       alert(response.data.message + ' New Price: ' + response.data.newPrice);
       setEditingBookingId(null);
       // Refresh the page after update

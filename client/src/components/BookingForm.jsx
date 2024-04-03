@@ -36,7 +36,7 @@ const BookingForm = () => {
         };
 
         try {
-            const response = await axios.post('http://localhost:3001/api/bookings/', dataToSend);
+            const response = await axios.post('https://scaler-hotel-management-server.vercel.app/api/bookings/', dataToSend);
             console.log('Booking created:', response.data);
             alert('Booking created successfully!');
         } catch (error) {
